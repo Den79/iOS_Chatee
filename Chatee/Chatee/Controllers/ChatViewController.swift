@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   @IBOutlet weak var tableView: UITableView!
   
@@ -38,22 +38,82 @@ class ChatViewController: UIViewController {
     }
   }
   
-  
-  override func viewDidLoad() {
-        super.viewDidLoad()
+  /*
+      You will need to use import Firebase, and add reference to the UITableViewDelegate, UITableViewDataSource protocols.
+  */
 
-        // Do any additional setup after loading the view.
+    var messages: [Message] = []
+    
+    override func viewDidLoad() {
+      super.viewDidLoad()
+      
+      // set up this view controller as the tableView's delegate and dataSource
+      tableView.delegate = self
+      tableView.dataSource = self
+      
+      // register our custom cell xib
+      tableView.register(UINib(nibName: "MessageCell", bundle: nil) , forCellReuseIdentifier: "messageCell")
+
+      getMessages()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+      scrollToBottom()
     }
-    */
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      return messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! MessageCell
+      let message = messages[indexPath.row]
+
+      cell.messageBodyLabel.text = message.messageBody
+      cell.senderLabel.text = message.sender
+      
+      // if the cell is showing our message make it a different colour than other user messages
+      if let email = Auth.auth().currentUser?.email, email == message.sender {
+        cell.messageBodyBackground.backgroundColor = UIColor.green
+        cell.senderImageView.image = UIImage(named: "stars")
+      } else {
+        cell.messageBodyBackground.backgroundColor = UIColor.orange
+        cell.senderImageView.image = UIImage(named: "smile")
+      }
+      
+      return cell
+    }
+    
+    // scrolls the table view to the bottom so we can see the most recent messages
+    func scrollToBottom() {
+      guard tableView.numberOfRows(inSection: 0) > 0 else { return }
+
+      let indexPath = IndexPath(row: messages.count - 1, section: 0)
+      tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+    }
+    
+    func getMessages() {
+      // get all the messages in our firebase Messages db
+      let messagesDB = Database.database().reference().child("Messages")
+
+      // observe for changes in firebase Messages db
+      messagesDB.observe(.childAdded) { (snapShot) in
+        // we originally stored our data as a dictionary, ie ["Sender": "an email address", "MessageBody": "blah blah"], so we need to cast the value we're getting from firebase back into a dictionary
+        if let value = snapShot.value as? Dictionary<String, String>,
+           let messageBody = value["MessageBody"],
+           let sender = value["Sender"] {
+          // create a Message object from the data we get back from firebase
+          let message = Message(sender: sender, messageBody: messageBody)
+          // add our new messages to our messages array
+          self.messages.append(message)
+          
+          // reload our table
+          self.tableView.reloadData()
+          
+          // ensure our table is scrolled to the bottom where the most recent message is
+          self.scrollToBottom()
+        }
+      }
+    }
 
 }
