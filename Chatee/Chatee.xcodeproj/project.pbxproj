@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		B7948234240440E0008FB7C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7948233240440E0008FB7C6 /* Assets.xcassets */; };
 		B7948237240440E0008FB7C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7948235240440E0008FB7C6 /* LaunchScreen.storyboard */; };
 		B794823F240445AC008FB7C6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B794823E240445AC008FB7C6 /* GoogleService-Info.plist */; };
+		B794824124044CBB008FB7C6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B794824024044CBB008FB7C6 /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		B7948236240440E0008FB7C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7948238240440E0008FB7C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B794823E240445AC008FB7C6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B794824024044CBB008FB7C6 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		CE12A403885C25A0FD8A3330 /* Pods-Chatee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatee.debug.xcconfig"; path = "Target Support Files/Pods-Chatee/Pods-Chatee.debug.xcconfig"; sourceTree = "<group>"; };
 		FC64C494E70E28EAD7E95EAA /* Pods-Chatee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatee.release.xcconfig"; path = "Target Support Files/Pods-Chatee/Pods-Chatee.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 				B7948233240440E0008FB7C6 /* Assets.xcassets */,
 				B7948235240440E0008FB7C6 /* LaunchScreen.storyboard */,
 				B7948238240440E0008FB7C6 /* Info.plist */,
+				B794824024044CBB008FB7C6 /* WelcomeViewController.swift */,
 			);
 			path = Chatee;
 			sourceTree = "<group>";
@@ -91,7 +94,6 @@
 				CE12A403885C25A0FD8A3330 /* Pods-Chatee.debug.xcconfig */,
 				FC64C494E70E28EAD7E95EAA /* Pods-Chatee.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -212,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B794822F240440DF008FB7C6 /* ViewController.swift in Sources */,
+				B794824124044CBB008FB7C6 /* WelcomeViewController.swift in Sources */,
 				B794822B240440DF008FB7C6 /* AppDelegate.swift in Sources */,
 				B794822D240440DF008FB7C6 /* SceneDelegate.swift in Sources */,
 			);
