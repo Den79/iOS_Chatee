@@ -19,6 +19,9 @@
 		B794824324045537008FB7C6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B794824224045537008FB7C6 /* LoginViewController.swift */; };
 		B79482452404554D008FB7C6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79482442404554D008FB7C6 /* RegisterViewController.swift */; };
 		B7948247240461E9008FB7C6 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7948246240461E9008FB7C6 /* ChatViewController.swift */; };
+		B794824F240477A7008FB7C6 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B794824D240477A7008FB7C6 /* MessageCell.swift */; };
+		B7948250240477A7008FB7C6 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B794824E240477A7008FB7C6 /* MessageCell.xib */; };
+		B794825224047C52008FB7C6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B794825124047C52008FB7C6 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		B794824224045537008FB7C6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B79482442404554D008FB7C6 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B7948246240461E9008FB7C6 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		B794824D240477A7008FB7C6 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		B794824E240477A7008FB7C6 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		B794825124047C52008FB7C6 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		CE12A403885C25A0FD8A3330 /* Pods-Chatee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatee.debug.xcconfig"; path = "Target Support Files/Pods-Chatee/Pods-Chatee.debug.xcconfig"; sourceTree = "<group>"; };
 		FC64C494E70E28EAD7E95EAA /* Pods-Chatee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatee.release.xcconfig"; path = "Target Support Files/Pods-Chatee/Pods-Chatee.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,20 +87,47 @@
 		B7948229240440DF008FB7C6 /* Chatee */ = {
 			isa = PBXGroup;
 			children = (
+				B794824C240476F6008FB7C6 /* Controllers */,
+				B794824B240476E3008FB7C6 /* Models */,
+				B794824A240476D4008FB7C6 /* View */,
 				B794823E240445AC008FB7C6 /* GoogleService-Info.plist */,
-				B794822A240440DF008FB7C6 /* AppDelegate.swift */,
 				B794822C240440DF008FB7C6 /* SceneDelegate.swift */,
 				B794822E240440DF008FB7C6 /* ViewController.swift */,
-				B7948230240440DF008FB7C6 /* Main.storyboard */,
 				B7948233240440E0008FB7C6 /* Assets.xcassets */,
-				B7948235240440E0008FB7C6 /* LaunchScreen.storyboard */,
 				B7948238240440E0008FB7C6 /* Info.plist */,
-				B794824024044CBB008FB7C6 /* WelcomeViewController.swift */,
+			);
+			path = Chatee;
+			sourceTree = "<group>";
+		};
+		B794824A240476D4008FB7C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B794824E240477A7008FB7C6 /* MessageCell.xib */,
+				B794824D240477A7008FB7C6 /* MessageCell.swift */,
+				B7948235240440E0008FB7C6 /* LaunchScreen.storyboard */,
+				B7948230240440DF008FB7C6 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B794824B240476E3008FB7C6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B794825124047C52008FB7C6 /* Message.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B794824C240476F6008FB7C6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B794822A240440DF008FB7C6 /* AppDelegate.swift */,
 				B794824224045537008FB7C6 /* LoginViewController.swift */,
+				B794824024044CBB008FB7C6 /* WelcomeViewController.swift */,
 				B79482442404554D008FB7C6 /* RegisterViewController.swift */,
 				B7948246240461E9008FB7C6 /* ChatViewController.swift */,
 			);
-			path = Chatee;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		C46F4AB8B5EEA9595F02B69D /* Pods */ = {
@@ -166,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7948250240477A7008FB7C6 /* MessageCell.xib in Resources */,
 				B7948237240440E0008FB7C6 /* LaunchScreen.storyboard in Resources */,
 				B794823F240445AC008FB7C6 /* GoogleService-Info.plist in Resources */,
 				B7948234240440E0008FB7C6 /* Assets.xcassets in Resources */,
@@ -225,10 +259,12 @@
 				B794822F240440DF008FB7C6 /* ViewController.swift in Sources */,
 				B794824124044CBB008FB7C6 /* WelcomeViewController.swift in Sources */,
 				B794822B240440DF008FB7C6 /* AppDelegate.swift in Sources */,
+				B794825224047C52008FB7C6 /* Message.swift in Sources */,
 				B7948247240461E9008FB7C6 /* ChatViewController.swift in Sources */,
 				B79482452404554D008FB7C6 /* RegisterViewController.swift in Sources */,
 				B794824324045537008FB7C6 /* LoginViewController.swift in Sources */,
 				B794822D240440DF008FB7C6 /* SceneDelegate.swift in Sources */,
+				B794824F240477A7008FB7C6 /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
