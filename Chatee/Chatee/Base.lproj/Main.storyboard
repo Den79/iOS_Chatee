@@ -75,7 +75,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ha-fN-iGo">
                                         <rect key="frame" x="75" y="192" width="97" height="30"/>
@@ -113,11 +113,28 @@
                     <connections>
                         <outlet property="emailTextField" destination="ohh-C3-bQp" id="H6y-0c-Gsv"/>
                         <outlet property="passwordTextField" destination="QvD-t3-12J" id="kYZ-uF-GWs"/>
+                        <segue destination="ibd-Ny-K0E" kind="show" identifier="showChat" id="IHh-ho-Kv5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZR-pE-7FL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1430.4347826086957" y="555.80357142857144"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Yr3-GT-iBj">
+            <objects>
+                <viewController id="ibd-Ny-K0E" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UCB-aC-oM1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="wTC-NH-61D"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Edy-Ay-aC5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DT8-wH-dwO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2351" y="176"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="hBn-o9-RDb">
@@ -142,7 +159,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjQ-HD-a0N">
                                         <rect key="frame" x="75" y="192" width="97" height="30"/>
@@ -150,6 +167,9 @@
                                         <color key="backgroundColor" red="0.54934471200000001" green="0.0" blue="0.03976559834" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="loginButtonTapped:" destination="jeC-Kw-zv2" eventType="touchUpInside" id="WNs-2H-3GO"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80677441343194589" green="0.97298958027075222" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -167,6 +187,11 @@
                         <viewLayoutGuide key="safeArea" id="1d5-6A-sq6"/>
                     </view>
                     <navigationItem key="navigationItem" id="PN2-L0-IcL"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="tHc-Xw-AC8" id="bbM-td-km1"/>
+                        <outlet property="passwordTextField" destination="ybz-7R-y4b" id="Ymm-P8-Wf4"/>
+                        <segue destination="ibd-Ny-K0E" kind="show" identifier="showChat" id="yzM-bV-4jG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qXd-8V-cmx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -191,4 +216,7 @@
             <point key="canvasLocation" x="-204.34782608695653" y="75"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yzM-bV-4jG"/>
+    </inferredMetricsTieBreakers>
 </document>

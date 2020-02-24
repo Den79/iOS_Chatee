@@ -24,6 +24,8 @@ class RegisterViewController: UIViewController {
         } else {
           // successfully created user
           print("successfully created user " + email)
+          self.performSegue(withIdentifier: "showChat", sender: self)
+          
         }
       }
     }
